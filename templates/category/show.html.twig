@@ -3,18 +3,21 @@
 {% block title %}Catégorie #{{ category.id }}{% endblock %}
 
 {% block body %}
-    <div class="media">
-        <div class="media-body">
+<div class="container">
+    <div class="media-body">
 
-            <h2 class="mt-0 text-center">{{ category.name }}</h2>
-        {%for program in programs%}    
-            <p>{{ loop.index }} / {{ program.title }}</p>
-            <p>{{ program.synopsis }}</p>
-            {% endfor %}
-        </div>
+        <h2 class="mt-0 text-center">{{ category.name }}</h2>
+        {%for program in programs%}
+        <p>{{ loop.index }} / {{ program.title }}</p>
+        <p>{{ program.synopsis }}</p>
+        {% else %}
+        Aucune série trouvée.
+        {% endfor %}
     </div>
 
     <a href="{{ path('program_index') }}">
         Retour à la liste des programmes
     </a>
+
+</div>
 {% endblock %}
