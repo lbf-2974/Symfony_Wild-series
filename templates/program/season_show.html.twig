@@ -12,8 +12,8 @@
                 <ul>
                     {% for episode in season.episodes %}
                     <li>Episode {{episode.number}} : {{episode.title}}<br>
-                        {{episode.synopsis}}
-
+                        {{episode.synopsis}}<br>
+                        <a href="{{ path('program_episode_show',{program: program.id , season: season.id , episode: episode.id}) }}">Voir plus</a>
                     </li><br>
                     {% endfor %}
                 </ul>
