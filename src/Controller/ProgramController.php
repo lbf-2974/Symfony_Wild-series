@@ -25,7 +25,9 @@ class ProgramController extends AbstractController
       $form->handleRequest($request);
   
       if ($form->isSubmitted()&& $form->isValid()) {
-          $programRepository->save($program, true);            
+          $programRepository->save($program, true); 
+          
+          $this->addFlash('success', 'Un nouveau programme a été crée.');
   
           return $this->redirectToRoute('program_index');
       }
@@ -34,7 +36,6 @@ class ProgramController extends AbstractController
           'form' => $form,
       ]);
   }
-
 
 
     #[Route('/', name: 'index')]
